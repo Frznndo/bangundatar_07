@@ -1,4 +1,7 @@
+import 'package:bangun_datar_kelas_b/page/lingkaran_page.dart';
 import 'package:bangun_datar_kelas_b/page/persegi_page.dart';
+import 'package:bangun_datar_kelas_b/page/persegipanjang_page.dart';
+import 'package:bangun_datar_kelas_b/page/segitiga_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,17 +22,27 @@ class HomePage extends StatelessWidget {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPage()));
                   },
                   child: CustomMenu(imageAsset: "assets/persegi.jpeg",title: "Persegi"))),
-              Expanded(child: CustomMenu(imageAsset: "assets/persegi.jpeg",title: "Persegi")),
+              Expanded(child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPanjangPage()));
+                  },
+                  child: CustomMenu(imageAsset: "assets/persegipanjang.jpeg",title: "Persegi Panjang"))),
             ],
           ),
           Row(
             children: [
-              Expanded(child: CustomMenu(imageAsset: "assets/persegipanjang.jpeg",title: "Persegi")),
-              Expanded(child: CustomMenu(imageAsset: "assets/persegipanjang.jpeg",title: "Persegi")),
+              Expanded(child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SegitigaPage()));
+                  },
+                  child: CustomMenu(imageAsset: "assets/segitiga.jpeg",title: "Segitiga"))),
+              Expanded(child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LingkaranPage()));
+                  },
+                  child: CustomMenu(imageAsset: "assets/lingkaran.jpeg",title: "Lingkaran"))),
             ],
           ),
-          CustomMenu(imageAsset: "assets/segitiga.jpeg",title: "Segitiga"),
-          CustomMenu(imageAsset: "assets/lingkaran.jpeg",title: "Lingkaran"),
         ],
       ),
     );

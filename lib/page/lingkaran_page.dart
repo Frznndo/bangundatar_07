@@ -1,31 +1,31 @@
-import 'package:bangun_datar_kelas_b/controller/persegi_controller.dart';
+import 'package:bangun_datar_kelas_b/controller/lingkaran_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PersegiPage extends StatelessWidget {
-  PersegiPage({Key? key}) : super(key: key);
-final PersegiController _persegiController= Get.put(PersegiController());
+class LingkaranPage extends StatelessWidget {
+  LingkaranPage({Key? key}) : super(key: key);
+  final LingkaranController _lingkaranController= Get.put(LingkaranController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:const Text('Persegi Page'),),
-        body: Column(
+        title:const Text('Lingkaran Page'),),
+      body: Column(
         children: [
-          Image.asset("assets/persegi.jpeg",  height: 100,),
+          Image.asset("assets/lingkaran.jpeg",  height: 100,),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Persegi", style: TextStyle(color: Colors.black),
+            child: Text("Lingkaran", style: TextStyle(color: Colors.black),
             ),
           ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.green.shade300,borderRadius: BorderRadius.all(Radius.circular(10))
+                color: Colors.green.shade300,borderRadius: BorderRadius.all(Radius.circular(10))
             ),
             margin: const EdgeInsets.all(8.0),
             padding: const EdgeInsets.all(8.0),
-            child: Text("Persegi merupakan turunan dari segi empat yang mempunyai ciri khusus keempat sisinya sama panjang dan keempat sudutnya siku-siku (90°)."),
+            child: Text("Bangun datar dua dimensi yang terbentuk dari sekumpulan titik dengan jarak yang konstan atau teratur dari titik tetap pada sebuah bidang."),
           ),
           Container(
             decoration: BoxDecoration(
@@ -39,7 +39,7 @@ final PersegiController _persegiController= Get.put(PersegiController());
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextFormField(
                     onChanged: (value){
-                      _persegiController.sisi = int.parse(value);
+                      _lingkaranController.r = double.parse(value);
                     },
                     decoration: InputDecoration(
                         fillColor: Colors.white,
@@ -64,7 +64,7 @@ final PersegiController _persegiController= Get.put(PersegiController());
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(onPressed: (){
-                        _persegiController.hitungLuas();
+                        _lingkaranController.hitungLuas();
                       }, child: Text("Hitung Luas" ,style: TextStyle(color: Colors.white),),
                         style: ButtonStyle(
                             backgroundColor:
@@ -76,7 +76,7 @@ final PersegiController _persegiController= Get.put(PersegiController());
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(onPressed: (){
-                    _persegiController.hitungKeliling();
+                    _lingkaranController.hitungKeliling();
                   }, child: Text("Hitung Keliling", style: TextStyle(color: Colors.white),),
                     style: ButtonStyle(
                         backgroundColor:
@@ -86,21 +86,22 @@ final PersegiController _persegiController= Get.put(PersegiController());
               ],
             ),
           ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.green.shade300,borderRadius: BorderRadius.all(Radius.circular(10))
-                ),
-                margin: const EdgeInsets.all(8.0),
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Obx(() => Text(_persegiController.hasil.value,
-                      style: TextStyle(color: _persegiController.textColor.value),
-                    )),
-                  ],
-                ),
-              ),
-            ],
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.grey.shade300,borderRadius: BorderRadius.all(Radius.circular(10))
+            ),
+            margin: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Obx(() => Text(_lingkaranController.hasil.value,
+                  style: TextStyle(color: _lingkaranController.textColor.value),
+                )),
+              ],
+            ),
+          ),
+
+        ],
       ),
     );
   }
